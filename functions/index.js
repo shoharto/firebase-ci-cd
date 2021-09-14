@@ -11,3 +11,9 @@ exports.firbeaseCiC = functions.https.onRequest((request, response) => {
     functions.logger.info("Hello logs!", { structuredData: true });
     response.send("Hello from Github Action!");
 });
+
+
+exports.test02 = functions.https.onRequest((request, response) => {
+    functions.logger.info("Hello logs!", { structuredData: true });
+    response.send("Hello from Github Action!");
+});
