@@ -7,3 +7,7 @@ exports.firbeaseCiCd = functions.https.onRequest((request, response) => {
     functions.logger.info("Hello logs!", { structuredData: true });
     response.send("Hello from Github Action!");
 });
+exports.firbeaseCiC = functions.https.onRequest((request, response) => {
+    functions.logger.info("Hello logs!", { structuredData: true });
+    response.send("Hello from Github Action!");
+});
