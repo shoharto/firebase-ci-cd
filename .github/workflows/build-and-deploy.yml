@@ -10,28 +10,30 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@main
+        uses: actions/checkout@v2
       - name: Install Dependencies
-        run: npm install
-      - name: Build
-        run: npm run build-prod
-      - name: Archive Production Artifact
-        uses: actions/upload-artifact@main
-        with:
-          name: dist
-          path: dist
+        run: |
+          cd functions
+          npm install
+      # - name: Build
+      #   run: npm run build-prod
+      # - name: Archive Production Artifact
+      #   uses: actions/upload-artifact@main
+      #   with:
+      #     name: dist
+      #     path: dist
   deploy:
     name: Deploy
     needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@main
-      - name: Download Artifact
-        uses: actions/download-artifact@main
-        with:
-          name: dist
-          path: dist
+    # runs-on: ubuntu-latest
+    # steps:
+    #   - name: Checkout Repo
+    #     uses: actions/checkout@main
+    #   - name: Download Artifact
+    #     uses: actions/download-artifact@main
+    #     with:
+    #       name: dist
+    #       path: dist
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@main
         with:
