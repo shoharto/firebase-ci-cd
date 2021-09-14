@@ -37,6 +37,7 @@ jobs:
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
-          args: deploy --ignore-missing-functions
+          # args: deploy --ignore-missing-functions
+          args: deploy --only functions:`sed -n "s/exports\.\(\w*\).*$/\1/p"  functions/index.ts | paste -s -d, -`
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
