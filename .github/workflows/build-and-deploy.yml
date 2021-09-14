@@ -6,7 +6,7 @@ name: Firebase function deploy
 # events but only for the master branch
 on:
   push:
-    branches: [master]
+    branches: [main]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -28,7 +28,7 @@ jobs:
           npm install
       # Deploying the functions to firebase
       - name: Deploy to Firebase
-        uses: w9jds/firebase-action@master
+        uses: w9jds/firebase-action@main
         with:
           args: deploy --only functions
         env:
